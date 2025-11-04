@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexel | Tu negocio al siguiente nivel</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <!-- Logo -->
+            <div class="logo-nav">
+                <a href="/">
+                    <img src="/img/nl.png" alt="Logo Nexel">
+                    <h2>Nexel</h2>
+                </a>
+            </div>
+
+            <!-- Botón de menú hamburguesa (solo visible en móvil) -->
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <!-- Enlaces de navegación -->
+            <div class="btn-nav" id="nav-links">
+                <ul>
+                    <li><a href="/pages/aboutus.html">Sobre Nosotros</a></li>
+                    <li><a href="/pages/service.html">Servicio</a></li>
+                    <li><a href="https://wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <section>
+    <div class="main-section">
+        <div class="text-main">
+            <h1>TU NEGOCIO AL SIGUIENTE NIVEL</h1>
+            <p>
+                Creamos tiendas virtuales personalizadas, donde podrás crear productos,
+                gestionar pedidos, transacciones de compras, etc. Y todo eso desde cualquier lugar.
+            </p>
+            <a href="/pages/service.html" class="main-btn">Conoce más aquí</a>
+        </div>
+
+        <div class="role-content">
+            <div class="role role1 active">
+                <h1>Rol del cliente</h1>
+                <div class="role1-content">
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i><h2>Buscar</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i><h2>Comprar</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-credit-card"></i><h2>Pagar</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-bookmark"></i><h2>Guardar</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-comment"></i><h2>Comentar</h2></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="role role2">
+                <h1>Rol del administrador</h1>
+                <h2></h2>
+                <div class="role2-content">
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-user"></i><h2>Clientes</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-box"></i><h2>Pedidos</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-cubes"></i><h2>Productos</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-money-bill"></i><h2>Transacciones</h2></a>
+                    </div>
+                    <div class="role-item">
+                        <a href="#"><i class="fa-solid fa-blog"></i><h2>Blogs</h2></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+
+    <!-- Sección de vistas del panel del administrador -->
+    <section class="admin-view-section">
+        <div class="admin-view-container">
+            
+            <!-- Botones de selección de vista -->
+            <div class="admin-view-buttons">
+                <button class="view-btn active" data-img="productos">Vista Productos</button>
+                <button class="view-btn" data-img="inventario">Vista Inventario</button>
+                <button class="view-btn" data-img="pedidos">Vista Pedidos</button>
+            </div>
+
+            <!-- Contenedor de imágenes -->
+            <div class="admin-view-images">
+                <img id="img-productos" src="/img/vistaProductos.png" alt="Vista de Productos" class="view-image active">
+                <img id="img-inventario" src="/img/vistaInventario.png" alt="Vista de Inventario" class="view-image">
+                <img id="img-pedidos" src="/img/vistaPedidos.png" alt="Vista de Pedidos" class="view-image">
+            </div>
+
+            <!-- Descripción -->
+            <div class="admin-view-text">
+                <h2>Con tu tienda virtual, tendrás el control total de tu negocio.</h2>
+                <p>
+                    Crea, gestiona y haz crecer tus ventas sin depender de nadie.  
+                    Todo desde una plataforma intuitiva, moderna y adaptada a ti.
+                </p>
+
+                <!-- Botón CTA con enlace directo a WhatsApp -->
+                <a href="https://wa.me/593963328168?text=¡Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual%20🚀"
+                    target="_blank" 
+                    class="cta-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Habla con nosotros
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Sección 3: ¿Quiénes somos? -->
+    <section class="about-section">
+        <div class="about-container">
+            
+            <!-- Contenido principal -->
+            <div class="about-text">
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    Somos un grupo de <strong>3 desarrolladores</strong> con amplia experiencia creando 
+                    <strong>tiendas virtuales</strong> para emprendedores que buscan vender más, 
+                    atraer nuevos clientes y llevar su marca al siguiente nivel.
+                </p>
+            </div>
+
+            <!-- Icono representativo -->
+            <div class="about-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <!-- Enlace a la página completa -->
+            <a href="/pages/aboutus.html" class="about-btn">Conoce más sobre nosotros</a>
+        </div>
+    </section>
+
+
+
+        <!-- Sección 4: Preguntas Frecuentes -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Preguntas Frecuentes</h2>
+
+            <div class="faq-list">
+
+            <!-- Pregunta 1 -->
+            <div class="faq-item">
+                <h3 class="faq-question">
+                ¿Lo que desarrollan tiene algún límite?
+                <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <p class="faq-answer">
+                No, lo que creamos <strong>no tiene límite</strong>. Desarrollamos la tienda virtual
+                <strong>que usted desea</strong>, completamente personalizada a sus ideas, estilo y objetivos de venta.
+                </p>
+
+                <p class="faq-answer">Para esto le sugiero revisar la sección "Servicio" que se encuentra en la misma pagina</p>
+
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="faq-item">
+                <h3 class="faq-question">
+                ¿Cuánto tiempo tarda en entregarse una tienda virtual?
+                <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <p class="faq-answer">
+                El tiempo depende de la complejidad del proyecto. En promedio, una tienda virtual se entrega en 
+                <strong>10 a 15 días hábiles</strong>, con comunicación constante durante el proceso.
+                </p>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="faq-item">
+                <h3 class="faq-question">
+                ¿Puedo administrar mi tienda yo mismo después?
+                <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <p class="faq-answer">
+                Sí. Una vez entregada, la tienda queda totalmente bajo su control. Además, le enseñamos cómo 
+                <strong>subir productos, cambiar precios y revisar pedidos</strong> fácilmente.
+                </p>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="faq-item">
+                <h3 class="faq-question">
+                ¿Ofrecen soporte técnico luego de la entrega?
+                <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <p class="faq-answer">
+                Claro. Incluimos un período de <strong>soporte gratuito</strong> posterior a la entrega para asegurarnos 
+                de que todo funcione correctamente y resolver cualquier duda que tenga.
+                </p>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="faq-item">
+                <h3 class="faq-question">
+                ¿Puedo pedir funciones extra más adelante?
+                <i class="fa-solid fa-chevron-down"></i>
+                </h3>
+                <p class="faq-answer">
+                Por supuesto. Podemos añadir <strong>nuevas funciones</strong> en cualquier momento: integración con 
+                pagos, chat en vivo, análisis de ventas y mucho más.
+                <p class="faq-answer">Eso sí, esas funciones requieren un pago extra.</p>
+                </p>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+
+            <!-- Columna 1 -->
+            <div class="footer-brand">
+                <img src="/img/nl.png" alt="">
+                <p>Tu negocio al siguiente nivel.</p>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="footer-links">
+                <h4>Enlaces útiles</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/pages/aboutus.html">Quiénes somos</a></li>
+                    <li><a href="#faq">Preguntas frecuentes</a></li>
+                    <li><a href="https://wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">WhatsApp</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3 -->
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Nexel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+
+
+    <!--Script para el menu desplegable-->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            const icon = menuToggle.querySelector("i");
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-xmark");
+        });
+    </script>
+
+
+
+
+    <!--Script para los iconos de la seccion1-->
+    <script>
+    const roles = document.querySelectorAll('.role');
+    let current = 0;
+
+    setInterval(() => {
+        roles[current].classList.remove('active');
+        current = (current + 1) % roles.length;
+        roles[current].classList.add('active');
+    }, 5000);
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const icons = document.querySelectorAll(".role-item a");
+
+    icons.forEach(icon => {
+        // Evita navegación
+        icon.addEventListener("click", e => {
+        e.preventDefault();
+        setActive(icon);
+        });
+
+        // Soporte móvil (touch)
+        icon.addEventListener("touchstart", e => {
+        e.preventDefault();
+        setActive(icon);
+
+        // Simula hover táctil (efecto visual al tocar)
+        icon.classList.add("touch-hover");
+        setTimeout(() => icon.classList.remove("touch-hover"), 400);
+        }, { passive: false });
+    });
+
+    function setActive(selected) {
+        icons.forEach(i => i.classList.remove("active"));
+        selected.classList.add("active");
+    }
+    });
+    </script>
+
+
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".view-btn");
+    const images = document.querySelectorAll(".view-image");
+
+    function changeView(button) {
+        // Quitar estado activo de todos los botones
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // Mostrar imagen correspondiente
+        const imgId = "img-" + button.dataset.img;
+        images.forEach(img => {
+        if (img.id === imgId) {
+            img.classList.add("active");
+        } else {
+            img.classList.remove("active");
+        }
+        });
+    }
+
+    buttons.forEach(button => {
+        // Un solo evento universal para evitar conflictos
+        ["pointerdown", "click"].forEach(eventType => {
+        button.addEventListener(eventType, e => {
+            e.preventDefault();
+            changeView(button);
+        });
+        });
+    });
+    });
+    </script>
+
+
+
+
+    <!--Script seccion 4-->
+    <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+        item.classList.toggle('active');
+        });
+    });
+    </script>
+
+
+
+    
+</body>
+</html>

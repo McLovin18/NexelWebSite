@@ -1,0 +1,741 @@
+body{
+    background-color: #1b1919;
+    font-family: "Audiowide", sans-serif;
+}
+
+html, body {
+  overflow-x: hidden; /* Evita el scroll horizontal */
+
+}
+
+
+/* ======== HEADER GENERAL ======== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  border: 1px solid rgb(65, 59, 59);
+  border-radius: 1em;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  background-color: #1b1919;
+  position: relative;
+  z-index: 1000;
+}
+
+/* ======== LOGO ======== */
+.logo-nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-nav img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-nav h2 {
+  font-size: 1.6rem;
+  color: #00bfff;
+  letter-spacing: 1px;
+}
+
+/* ======== NAVEGACIÓN ======== */
+.btn-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-nav ul li a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+/* ======== MENÚ HAMBURGUESA ======== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .btn-nav {
+    display: none;
+    width: 100%;
+    background-color: #141313;
+    border-top: 1px solid rgba(0, 191, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.15);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    border-radius: 0 0 1em 1em;
+  }
+
+  .btn-nav ul {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .btn-nav ul li a {
+    display: block;
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Mostrar menú activo */
+  .btn-nav.active {
+    display: block;
+  }
+}
+
+
+
+
+/*Secciones*/
+
+section {
+  color: white;
+  padding: 60px 10%;
+}
+
+/* Contenedor principal: texto y roles */
+.main-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* --- MITAD IZQUIERDA --- */
+.text-main {
+  flex: 1;
+  max-width: 50%;
+}
+
+.text-main h1 {
+  font-size: 2.5rem;
+  color: #00bfff;
+  margin-bottom: 20px;
+}
+
+.text-main p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.text-main .main-btn {
+  background-color: #00bfff;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.text-main .main-btn:hover {
+  background-color: #008ecc;
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* --- MITAD DERECHA (Roles) --- */
+.role-content {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+  min-height: 350px;
+
+}
+
+/* Oculta los roles por defecto */
+.role {
+  display: none;
+  text-align: center;
+}
+
+.role.active {
+  display: block;
+}
+
+.role h1 {
+    padding-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.role1-content,
+.role2-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Iconos y títulos */
+.role-item a {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+    padding-left: 20px;
+}
+
+.role-item a i {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.role-item a:hover i {
+  transform: scale(1.2);
+  color: #00bfff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-main,
+  .role-content {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+/* ===== SECCIÓN: VISTA DEL ADMIN ===== */
+.admin-view-section {
+  padding: 80px 10%;
+  color: white;
+  text-align: center;
+  background-color: #141313;
+  box-shadow: 0 0 40px rgba(0, 191, 255, 0.1);
+  border-radius: 20px;
+  margin-top: 60px;
+}
+
+.admin-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Botones superiores */
+.admin-view-buttons {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.view-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid #00bfff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Audiowide", sans-serif;
+}
+
+.view-btn:hover,
+.view-btn.active {
+  background-color: #00bfff;
+  color: #000;
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* Contenedor de imágenes */
+.admin-view-images {
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  max-width: 800px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.view-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.view-image.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Texto inferior */
+.admin-view-text {
+  max-width: 700px;
+  text-align: center;
+}
+
+.admin-view-text h2 {
+  color: #00bfff;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.admin-view-text p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* --- BOTÓN CTA WHATSAPP --- */
+.cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #00bfff, #00ff99);
+  color: #000;
+  text-decoration: none;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+  transition: all 0.3s ease;
+  font-family: "Audiowide", sans-serif;
+  margin-top: 25px;
+}
+
+.cta-whatsapp i {
+  font-size: 1.3rem;
+}
+
+.cta-whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
+  background: linear-gradient(90deg, #00ff99, #00bfff);
+  color: #000;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 1024px) {
+  .admin-view-images {
+    width: 100%;
+    max-width: 600px;
+    height: 360px;
+  }
+
+  .view-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .admin-view-buttons {
+    gap: 10px;
+  }
+
+  .admin-view-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .admin-view-text p {
+    font-size: 1rem;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .admin-view-section {
+    padding: 60px 5%;
+  }
+
+  .admin-view-container {
+    gap: 30px;
+  }
+
+  .admin-view-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .view-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .admin-view-images {
+    width: 100%;
+    height: 260px;
+  }
+
+  .view-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+
+  .view-image.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .admin-view-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .cta-whatsapp {
+    width: auto;
+    margin: 20px auto 0 auto;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+/*Seccion3: Sobre nosotros*/
+/* ===== SECCIÓN: QUIÉNES SOMOS ===== */
+.about-section {
+  padding: 80px 10%;
+  color: white;
+  text-align: center;
+  background-color: #1b1919;
+  box-shadow: 0 0 40px rgba(0, 191, 255, 0.1);
+  border-radius: 20px;
+  margin-top: 80px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Texto */
+.about-text {
+  max-width: 700px;
+}
+
+.about-text h2 {
+  color: #00bfff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Icono */
+.about-icon i {
+  font-size: 4rem;
+  color: #00bfff;
+  text-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.about-icon i:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 30px rgba(0, 191, 255, 1);
+}
+
+/* Botón */
+.about-btn {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #00bfff;
+  color: #00bfff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: "Audiowide", sans-serif;
+}
+
+.about-btn:hover {
+  background: #00bfff;
+  color: #000;
+  box-shadow: 0 0 20px #00bfff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .about-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-icon i {
+    font-size: 3rem;
+  }
+}
+
+
+
+/*Seccion4 Preguntas y respuestas*/
+/* ===== SECCIÓN: PREGUNTAS FRECUENTES ===== */
+.faq-section {
+  padding: 80px 10%;
+  background-color: #1b1919;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 80px;
+  box-shadow: 0 0 40px rgba(0, 191, 255, 0.1);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-container h2 {
+  color: #00bfff;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.faq-list {
+  text-align: left;
+}
+
+.faq-item {
+  background-color: #121212;
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #00bfff;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00bfff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+/* Mostrar respuesta cuando está activa */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .faq-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+  }
+}
+
+
+/*Footer*/
+/* ===== FOOTER ===== */
+.main-footer {
+  background-color: #1b1919;
+  color: #ccc;
+  padding: 60px 10% 30px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 191, 255, 0.1);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  text-align: center; /* Centra el texto */
+}
+
+.footer-brand img {
+  width: 50%; /* Ajusta según el tamaño que prefieras */
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.4));
+}
+
+.footer-brand p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+
+/* Columna 2 */
+.footer-links h4 {
+  color: #00bfff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #00bfff;
+}
+
+/* Columna 3 */
+.footer-social h4 {
+  color: #00bfff;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-icon {
+  font-size: 1.3rem;
+  color: white;
+  border: 2px solid #00bfff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #00bfff;
+  color: #000;
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* Parte inferior */
+.footer-bottom {
+  border-top: 1px solid rgba(0, 191, 255, 0.1);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}
