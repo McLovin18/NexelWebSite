@@ -1,11 +1,13 @@
     /* ===== FONDO ANIMADO ===== */
     body {
-      overflow-x: hidden;
       background: linear-gradient(-45deg, #0a0a0a, #0f1b2a, #001f3f, #0a0a0a);
       background-size: 400% 400%;
       animation: gradientShift 12s ease infinite;
       color: #fff;
       font-family: "Poppins", sans-serif;
+        overflow-x: hidden; /* Evita el scroll horizontal */
+        width: 100%;
+        max-width: 100vw;
     }
 
     @keyframes gradientShift {
@@ -130,8 +132,6 @@
       .team-member img { width: 110px; height: 110px; }
     }
 
-    /* ===== NAV Y FOOTER AJUSTES GENERALES ===== */
-    .nav, .main-footer { max-width: 100vw; overflow-x: hidden; }
 
 
 .role{

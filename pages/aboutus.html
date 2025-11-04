@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Nosotros | Nexel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Nexel</title>
+    <meta name="description" content="Creamos tiendas online profesionales y personalizadas para emprendedores. En Nexel impulsamos tu negocio con diseños modernos, pagos integrados y soporte completo." />
+    <meta name="keywords" content="tienda virtual, e-commerce, tienda online, crear tienda, diseño web, página web, ventas online, Nexel, ecommerce Ecuador" />
+    <meta name="author" content="Nexel_ec25" />
+
+    <!-- Indexación -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="es" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph (para compartir en redes sociales como Facebook, WhatsApp) -->
+    <meta property="og:title" content="Nexel — Tiendas virtuales personalizadas para emprendedores" />
+    <meta property="og:description" content="Transforma tu idea en una tienda online profesional. Nexel crea tu e-commerce con todo lo que necesitas para vender más." />
+    <meta property="og:image" content="https://tudominio.com/images/preview.jpg" />
+    <meta property="og:url" content="https://tudominio.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nexel" />
+    <meta property="og:locale" content="es_EC" />
+
+    <!-- Twitter Cards (para mejorar la vista en X/Twitter) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nexel — Tiendas virtuales personalizadas para emprendedores" />
+    <meta name="twitter:description" content="Creamos tiendas online modernas, seguras y listas para vender. Empieza tu negocio digital hoy con Nexel." />
+    <meta name="twitter:image" content="https://tudominio.com/images/preview.jpg" />
+    <link rel="icon" type="image/x-icon" href="/img/nl.png">
   <link rel="stylesheet" href="/styles/aboutus.css">
   <link rel="stylesheet" href="/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
+
+  
+
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header>
-    <nav class="nav">
-      <!-- Logo -->
-      <div class="logo-nav">
-        <a href="/">
-          <img src="/img/nl.png" alt="Logo Nexel">
-          <h2>Nexel</h2>
-        </a>
-      </div>
+    <header>
+        <nav class="nav">
+            <!-- Logo -->
+            <div class="logo-nav">
+                <a href="/">
+                    <img src="/img/nl.png" alt="Logo Nexel">
+                    <h2>Nexel</h2>
+                </a>
+            </div>
 
-      <!-- Botón hamburguesa -->
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
+            <!-- Botón de menú hamburguesa (solo visible en móvil) -->
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
 
-      <!-- Enlaces -->
-      <div class="btn-nav" id="nav-links">
-        <ul>
-          <li><a href="/pages/aboutus.html" class="active">Sobre Nosotros</a></li>
-          <li><a href="/pages/service.html">Servicio</a></li>
-          <li><a href="https://wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">Contacto</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+            <!-- Enlaces de navegación -->
+            <div class="btn-nav" id="nav-links">
+                <ul>
+                    <li><a href="/pages/aboutus.html">Sobre Nosotros</a></li>
+                    <li><a href="/pages/service.html">Servicio</a></li>
+                    <li><a href="https://wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
   <!-- ===== MAIN CONTENT ===== -->
   <main class="aboutus">
@@ -104,7 +131,6 @@
         <ul>
           <li><a href="/">Inicio</a></li>
           <li><a href="/pages/aboutus.html">Quiénes somos</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
           <li><a href="https://wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">WhatsApp</a></li>
         </ul>
       </div>
@@ -123,13 +149,25 @@
     </div>
   </footer>
 
-  <!-- JS menú responsive -->
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            const icon = menuToggle.querySelector("i");
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-xmark");
+        });
+        }
     });
-  </script>
+    </script>
+
+
 </body>
+
+
 </html>
