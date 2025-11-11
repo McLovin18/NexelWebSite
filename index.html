@@ -64,8 +64,8 @@
 
     
 
-    <section>
-    <div class="main-section">
+    <section id="main-section">
+    <div class="main-section" >
         <div class="text-main">
             <h1>TU NEGOCIO AL SIGUIENTE NIVEL</h1>
             <p>
@@ -280,7 +280,7 @@
             <div class="footer-links">
                 <h4>Enlaces útiles</h4>
                 <ul>
-                    <li><a href="/">Inicio</a></li>
+                    <li><a href="">Inicio</a></li>
                     <li><a href="/pages/aboutus.html">Quiénes somos</a></li>
                     <li><a href="/pages/service.html">Nuestros servicios</a></li>
 
@@ -322,17 +322,42 @@
 
 
 
-    <!--Script para los iconos de la seccion1-->
+    <!-- Script controlado -->
     <script>
+    const section = document.querySelector('#main-section');
     const roles = document.querySelectorAll('.role');
     let current = 0;
+    let interval = null;
 
-    setInterval(() => {
+    function startRotation() {
+        if (interval) return; // evitar duplicados
+        interval = setInterval(() => {
         roles[current].classList.remove('active');
         current = (current + 1) % roles.length;
         roles[current].classList.add('active');
-    }, 5000);
+        }, 5000);
+    }
+
+    function stopRotation() {
+        clearInterval(interval);
+        interval = null;
+    }
+
+    // Observador para saber si la sección está visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startRotation();
+        } else {
+            stopRotation();
+        }
+        });
+    }, { threshold: 0.4 }); // 40% visible para activar
+
+    observer.observe(section);
     </script>
+
+
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
