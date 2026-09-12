@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/index.css">
+
+<title>Proyectos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+ 
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+ 
+  @keyframes proj-fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+ 
+  @keyframes proj-lineGrow {
+    from { width: 0; }
+    to   { width: 48px; }
+  }
+ 
+  @keyframes proj-glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,191,255,0); }
+    50%       { box-shadow: 0 0 24px 4px rgba(0,191,255,0.18); }
+  }
+ 
+  /* ── sección wrapper ── */
+  .proj-section {
+    background-color: #141313;
+    padding: 80px 10%;
+    color: white;
+    font-family: 'Inter', sans-serif;
+  }
+ 
+  /* ── header ── */
+  .proj-header {
+    text-align: center;
+    margin-bottom: 64px;
+    animation: proj-fadeUp 0.6s ease forwards;
+  }
+ 
+  .proj-eyebrow {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #00bfff;
+    margin-bottom: 14px;
+  }
+ 
+  .proj-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 16px;
+    line-height: 1.45;
+  }
+ 
+  .proj-title span {
+    color: #00bfff;
+  }
+ 
+  .proj-subtitle {
+    font-size: 1.05rem;
+    color: #888;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+ 
+  /* ── filtros ── */
+  .proj-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+    animation: proj-fadeUp 0.6s ease 0.1s both forwards;
+    opacity: 0;
+  }
+ 
+  .proj-filter-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid #2a2a2a;
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+ 
+  .proj-filter-btn:hover {
+    border-color: #00bfff;
+    color: #00bfff;
+  }
+ 
+  .proj-filter-btn.active {
+    background: #00bfff;
+    border-color: #00bfff;
+    color: #000;
+  }
+ 
+  /* ── grid ── */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+ 
+  @media (max-width: 768px) {
+    .proj-grid {
+      grid-template-columns: 1fr;
+    }
+    .proj-section {
+      padding: 60px 5%;
+    }
+  }
+ 
+  /* ── card ── */
+  .proj-card {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid #1f1f1f;
+    background: #181818;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .proj-card:hover {
+    border-color: #00bfff44;
+    animation: proj-glowPulse 2.5s ease infinite;
+  }
+ 
+  /* ── imagen mock ── */
+  .proj-img {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+ 
+  .proj-img-bg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    background-size: cover;
+    background-position: center;
+  }
+ 
+  .proj-card:hover .proj-img-bg {
+    transform: scale(1.04);
+  }
+ 
+  /* placeholder que se muestra cuando el proyecto NO tiene imagen propia */
+  .proj-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0.85;
+    position: relative;
+  }
+ 
+  .proj-img-placeholder .proj-icon {
+    font-size: 52px;
+  }
+ 
+  .proj-img-placeholder .proj-name-mark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+ 
+  .proj-img-placeholder .proj-lines {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px);
+    pointer-events: none;
+  }
+ 
+  /* ── tag tipo ── */
+  .proj-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+  }
+ 
+  /* ── año ── */
+  .proj-year {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.45);
+    padding: 4px 10px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+  }
+ 
+  /* ── info ── */
+  .proj-info {
+    padding: 24px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+ 
+  .proj-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+  }
+ 
+  .proj-desc {
+    font-size: 0.88rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+  }
+ 
+  /* ── tech stack ── */
+  .proj-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+ 
+  .proj-tech {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #2a2a2a;
+    color: white;
+    text-transform: uppercase;
+  }
+ 
+  /* ── footer card ── */
+  .proj-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 26px 22px;
+    border-top: 1px solid #1f1f1f;
+    margin-top: auto;
+  }
+ 
+  .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #00bfff;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+ 
+  .proj-link:hover {
+    gap: 11px;
+  }
+ 
+  .proj-link svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+  }
+ 
+  .proj-link:hover svg {
+    transform: translateX(3px);
+  }
+ 
+  .proj-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e88;
+    flex-shrink: 0;
+  }
+ 
+  .proj-live-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #22c55e;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+ 
+  /* ── CTA final ── */
+  .proj-cta {
+    text-align: center;
+    margin-top: 64px;
+    animation: proj-fadeUp 0.6s ease 0.5s both forwards;
+    opacity: 0;
+  }
+ 
+  .proj-cta p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+ 
+  .proj-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1px solid #00bfff55;
+    color: #00bfff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+ 
+  .proj-cta-btn:hover {
+    background: #00bfff;
+    color: #000;
+    border-color: #00bfff;
+    box-shadow: 0 0 24px rgba(0,191,255,0.3);
+  }
+ 
+  /* ── accesibilidad ── */
+  @media (prefers-reduced-motion: reduce) {
+    .proj-card, .proj-header, .proj-filters, .proj-cta {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="nav">
+            <!-- Logo -->
+            <div class="logo-nav">
+                <a href="/">
+                    <img src="/img/nl.png" alt="Logo Nexel">
+                    <h2>Nexel</h2>
+                </a>
+            </div>
+
+            <!-- Botón de menú hamburguesa (solo visible en móvil) -->
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <!-- Enlaces de navegación -->
+            <div class="btn-nav" id="nav-links">
+                <ul>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/pages/aboutus.html">Sobre Nosotros</a></li>
+                    <li><a href="/pages/service.html">Servicio</a></li>
+                    <li><a href="/pages/projects.html">Trabajos realizados</a></li>
+                    <li><a href="https//wa.me/593963328168?text=Hola!%20Estoy%20interesado%20en%20una%20tienda%20virtual">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<section class="proj-section">
+  <!-- Header -->
+  <div class="proj-header">
+    <span class="proj-eyebrow">Trabajos realizados</span>
+    <h1 class="proj-title">
+      Proyectos que<br>
+      <span>hablan por sí solos</span>
+    </h1>
+    <p class="proj-subtitle">
+      Cada proyecto resuelve un problema real. Aquí algunos de los
+      productos que he construido de inicio a fin.
+    </p>
+  </div>
+
+  <!-- Filtros -->
+  <div class="proj-filters" id="proj-filters"></div>
+
+  <!-- Grid -->
+  <div class="proj-grid" id="proj-grid"></div>
+
+  <!-- CTA -->
+  <div class="proj-cta">
+    <p>¿Tienes un proyecto en mente?</p>
+    <a href="/contacto" class="proj-cta-btn">
+      Hablemos
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  // PROYECTOS
+  // Para poner tu propia imagen en un proyecto, solo llena el
+  // campo "image" con la URL o ruta de la imagen (ej: "img/tecnothings.jpg").
+  // Si "image" queda vacío (""), se muestra automáticamente el
+  // fondo con degradado + ícono que ya tenías.
+  // ─────────────────────────────────────────────────────────────
+  const PROJECTS = [
+    {
+      id: "techno",
+      name: "TechnoThings",
+      desc: "E-commerce de tecnología gaming y componentes electrónicos. Catálogo filtrable, carrito y checkout integrado.",
+      category: "E-commerce",
+      tag: "Gaming & Tech",
+      tagColor: "#a855f7",
+      tagBg: "rgba(168,85,247,0.15)",
+      year: "Febrero, 2026",
+      stack: ["Secciones", "Catálogo de productos", "Compra directa con tarjeta (STRIPE)","Panel para el cliente", "Control total en panel de administración", "Más..."],
+      href: "https://www.tecnothings.com",
+      gradient: "linear-gradient(135deg, #0f0c29 0%, #1a0533 50%, #24243e 100%)",
+      icon: "🎮",
+      image: "../img/tt_img.png" // <-- pon aquí la URL de la imagen de TechnoThings
+    },
+    {
+      id: "marca",
+      name: "Marca Estilo",
+      desc: "Tienda de camisetas de lujo para hombres. Diseño premium con pasarela de pagos Datafast y gestión de pedidos en Firebase.",
+      category: "E-commerce",
+      tag: "Moda de lujo",
+      tagColor: "#dcb432",
+      tagBg: "rgba(220,180,50,0.15)",
+      year: "Mayo, 2026",
+      stack: ["Secciones en la página principal", "Catálogo de productos",  "Pagos con tarjeta (DATAFAST)", "Control total en panel de administración", "Más..."],
+      href: "https://marca-estilo-41im.vercel.app/",
+      gradient: "linear-gradient(135deg, #080808 0%, #1a1500 50%, #0d0d00 100%)",
+      icon: "👔",
+      image: "../img/me_img.png" // <-- pon aquí la URL de la imagen de Marca Estilo
+    },
+    {
+      id: "JuliianaBasics",
+      name: "Juliana Basics",
+      desc: "Tienda de prendas y estilos ideales para cada ocasión.",
+      category: "E-commerce",
+      tag: "Retail",
+      tagColor: "#ec4899",
+      tagBg: "rgba(236,72,153,0.15)",
+      year: "Julio, 2026",
+      stack: ["React", "Node.js", "MongoDB", "Stripe"],
+      href: "https://www.julianabasics.com.ec",
+      gradient: "linear-gradient(135deg, #1a0010 0%, #2d0020 50%, #1a0830 100%)",
+      icon: "💄",
+      image: "../img/main_jb.png"
+    },
+    {
+      id: "Vaneshop",
+      name: "Vaneshop",
+      desc: "Tienda de piezas de arte con identidad e historia.",
+      category: "E-commerce",
+      tag: "Retail",
+      tagColor: "#ec4899",
+      tagBg: "rgba(236,72,153,0.15)",
+      year: "2026",
+      stack: ["Secciones", "Catálogo de productos",  "Opci´ón pago con transferencia bancaria", "Control total en panel de administración", "Más..."],
+      href: "https://www.vaneshopart.com",
+      gradient: "linear-gradient(135deg, #1a0010 0%, #2d0020 50%, #1a0830 100%)",
+      icon: "💄",
+      image: "../img/vs_img.png"
+    },
+        {
+      id: "urbanC",
+      name: "Urban Concept",
+      desc: "Diseño urbano de interiores. Tienda de piezas y mobiliario para tu hogar.",
+      category: "Corporativo",
+      tag: "Corporativo",
+      tagColor: "#00bfff",
+      tagBg: "rgba(0,191,255,0.15)",
+      year: "2023",
+      stack: ["React", "TypeScript", "REST API", "CSS"],
+      href: "https://urban-concept-web.vercel.app",
+      gradient: "linear-gradient(135deg, #001529 0%, #001f3f 50%, #00090f 100%)",
+      icon: "📱",
+      image: "../img/uc_img.png" // <-- pon aquí la URL de la imagen de Samsung Ecuador
+    }
+  ];
+
+  const CATEGORIES = ["Todos", "E-commerce", "Corporativo"];
+  let active = "Todos";
+
+  function renderFilters() {
+    const wrap = document.getElementById("proj-filters");
+    wrap.innerHTML = "";
+    CATEGORIES.forEach((cat) => {
+      const btn = document.createElement("button");
+      btn.className = "proj-filter-btn" + (active === cat ? " active" : "");
+      btn.textContent = cat;
+      btn.addEventListener("click", () => {
+        active = cat;
+        renderFilters();
+        renderGrid();
+      });
+      wrap.appendChild(btn);
+    });
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById("proj-grid");
+    grid.innerHTML = "";
+    const filtered = active === "Todos" ? PROJECTS : PROJECTS.filter(p => p.category === active);
+
+    filtered.forEach((proj, i) => {
+      const card = document.createElement("div");
+      card.className = "proj-card";
+      card.style.animationDelay = `${i * 100 + 200}ms`;
+
+      // ── imagen o placeholder ──
+      const imgWrap = document.createElement("div");
+      imgWrap.className = "proj-img";
+
+      const imgBg = document.createElement("div");
+      imgBg.className = "proj-img-bg";
+
+      if (proj.image) {
+        imgBg.style.backgroundImage = `url("${proj.image}")`;
+      } else {
+        imgBg.style.background = proj.gradient;
+        imgBg.innerHTML = `
+          <div class="proj-img-placeholder">
+            <span class="proj-icon">${proj.icon}</span>
+            <span class="proj-name-mark">${proj.name}</span>
+            <div class="proj-lines"></div>
+          </div>
+        `;
+      }
+      imgWrap.appendChild(imgBg);
+
+      const tag = document.createElement("span");
+      tag.className = "proj-tag";
+      tag.textContent = proj.tag;
+      tag.style.color = proj.tagColor;
+      tag.style.background = proj.tagBg;
+      tag.style.border = `1px solid ${proj.tagColor}44`;
+      imgWrap.appendChild(tag);
+
+      const year = document.createElement("span");
+      year.className = "proj-year";
+      year.textContent = proj.year;
+      imgWrap.appendChild(year);
+
+      card.appendChild(imgWrap);
+
+      // ── info ──
+      const info = document.createElement("div");
+      info.className = "proj-info";
+      info.innerHTML = `
+        <h2 class="proj-name">${proj.name}</h2>
+        <p class="proj-desc">${proj.desc}</p>
+        <div class="proj-stack">
+          ${proj.stack.map(t => `<span class="proj-tech">${t}</span>`).join("")}
+        </div>
+      `;
+      card.appendChild(info);
+
+      // ── footer ──
+      const footer = document.createElement("div");
+      footer.className = "proj-card-footer";
+      footer.innerHTML = `
+        <span class="proj-live-label">
+          <span class="proj-dot"></span>
+          En producción
+        </span>
+        <a href="${proj.href}" target="_blank" rel="noopener noreferrer" class="proj-link">
+          Ver proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      `;
+      card.appendChild(footer);
+
+      grid.appendChild(card);
+    });
+  }
+
+  renderFilters();
+  renderGrid();
+</script>
+
+</body>
+</html>
